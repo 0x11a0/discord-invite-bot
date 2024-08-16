@@ -69,7 +69,25 @@ graph TD
     DiscordBot -->|Grant Access| Discord
 ```
 
-## Industry Standards
+### Tech Stack
+
+The **discord-invite-bot** is designed to be flexible and can be implemented in various programming languages, including:
+
+- C#
+- Java
+- Go
+- Lua
+- NodeJS
+- PHP
+- Python
+- Ruby
+- Rust
+
+**Current Implementation:** NodeJS
+
+Future versions may include implementations in other listed languages.
+
+## Standards
 
 - **Secure API Communication:** All interactions between the frontend, API server, and Discord bot are secured with HTTPS and authentication tokens.
 - **Rate Limiting:** API endpoints include rate limiting to prevent abuse.
