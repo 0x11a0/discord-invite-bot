@@ -17,15 +17,6 @@ const testCreateChannel = async () => {
   }
 };
 
-// Test verify-user API
-const testVerifyUser = async () => {
-  try {
-    const response = await axios.post(`${BASE_URL}/verify-user`, { channelName, joiningHandle });
-    console.log('Verify User Response:', response.data);
-  } catch (error) {
-    console.error('Error verifying user:', error.response ? error.response.data : error.message);
-  }
-};
 
 // Run tests
 const runTests = async () => {
