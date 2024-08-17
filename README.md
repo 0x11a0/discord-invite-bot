@@ -22,19 +22,31 @@
    npm install
    ```
 
-3. **Environment Variables:**
+3. **Create the Bot:**
+    Create the bot here: [Discord Applications](https://discord.com/developers/applications)  
+
+4. **Add Bot to your Server:**
+    Ensure the Bot is Invited to a Guild:
+
+    - Make sure your bot has been invited to at least one Discord server (guild). You can generate an invite link from the Discord Developer Portal.
+    
+    - To generate the invite link, you can use the following URL format, replacing CLIENT_ID with your bot’s client ID:
+    
+    > https://discord.com/oauth2/authorize?client_id=CLIENT_ID&scope=bot&permissions=8
+
+
+5. **Environment Variables:**
    Create a `.env` file in the root directory and populate it with the following variables:
    ```env
    DISCORD_BOT_TOKEN=your_discord_bot_token
    CHANNEL_PREFIX=channel-
    ```
-
-4. **Start the Bot:**
+6. **Start the Bot:**
    ```bash
    npm start
    ```
 
-5. **Docker (Optional):**
+7. **Docker (Optional):**
    If you prefer to run the bot in a Docker container:
    ```bash
    docker build -t discord-invite-bot .
@@ -110,22 +122,6 @@ Future versions may include implementations in other listed languages.
      ```json
      {
        "inviteLink": "https://discord.gg/..."
-     }
-     ```
-
-2. **POST /api/verify-user**
-   - **Description:** Verifies if the user joining the Discord channel matches the provided criteria.
-   - **Request:** 
-     ```json
-     {
-       "channelName": "channel-Username",
-       "joiningHandle": "Username#1234"
-     }
-     ```
-   - **Response:**
-     ```json
-     {
-       "verified": true/false
      }
      ```
 

@@ -3,8 +3,8 @@ const axios = require('axios');
 const BASE_URL = 'http://localhost:3000/api';
 
 // Test Data
-const discordHandle = 'lucas_0xl';
-const channelName = 'channel-lucas_0xl';
+const discordHandle = 'Username#1234';
+const channelName = 'channel-Username#1234';
 const joiningHandle = 'Username#1234';
 
 // Test create-channel API
@@ -31,9 +31,6 @@ const testVerifyUser = async () => {
 const runTests = async () => {
   console.log('Testing create-channel API...');
   await testCreateChannel();
-
-//   console.log('Testing verify-user API...');
-//   await testVerifyUser();
 };
 
 runTests();
