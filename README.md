@@ -3,6 +3,27 @@
 ## Overview
 **discord-invite-bot** is a versatile and secure bot designed to automate the creation of private Discord channels based on user input or specific criteria. Whether you're managing an exclusive community, setting up team channels, or offering custom Discord experiences, this bot can be tailored to fit a wide range of use cases. The bot integrates seamlessly with Discord to create channels, generate invite links, and ensure only the correct users can join the channels.
 
+
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Setup](#setup)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Architecture](#architecture)
+  - [Components](#components)
+- [Mermaid Diagram of Architecture](#mermaid-diagram-of-architecture)
+- [Language and Framework](#language-and-framework)
+- [Tech Stack for NodeJS](#tech-stack-for-nodejs)
+- [Standards](#standards)
+- [API Usage](#api-usage)
+  - [Endpoints](#endpoints)
+- [Contributor](#contributor)
+- [License](#license)
+
+
+
 ## Setup
 
 ### Prerequisites
@@ -81,7 +102,7 @@ graph TD
     DiscordBot -->|Grant Access| Discord
 ```
 
-### Tech Stack
+## Language and Framework
 
 The **discord-invite-bot** is designed to be flexible and can be implemented in various programming languages, including:
 
@@ -98,6 +119,42 @@ The **discord-invite-bot** is designed to be flexible and can be implemented in 
 **Current Implementation:** NodeJS
 
 Future versions may include implementations in other listed languages.
+
+
+## Tech Stack for NodeJS 
+
+**Languages & Frameworks**
+
+- **Node.js**: The primary runtime environment for executing JavaScript code on the server side.
+- **Express.js**: A minimal and flexible Node.js web application framework used for building the REST API.
+
+**Discord Integration**
+
+- **discord.js**: A powerful Node.js module that allows interaction with the Discord API, enabling the bot to create channels, manage invites, and handle user interactions.
+
+**Middleware**
+
+- **express-rate-limit**: Middleware for rate-limiting incoming requests to prevent abuse and enhance security.
+- **morgan**: HTTP request logger middleware for Node.js, used for monitoring incoming requests.
+
+**Logging**
+
+- **winston**: A versatile logging library for Node.js, used for logging application events, errors, and other important information.
+- **winston-loggly-bulk**: A transport for `winston` that allows sending logs to Loggly, a cloud-based log management service.
+
+**Environment Management**
+
+- **dotenv**: A zero-dependency module that loads environment variables from a `.env` file into `process.env`, ensuring sensitive information is kept secure and configurable.
+
+**Deployment & Operations**
+
+- **Docker**: (Optional) A platform used to containerize the application for consistent and reliable deployment across different environments.
+
+**Testing**
+
+- **Jest**: A JavaScript testing framework maintained by Facebook, used for writing and running tests (if included in your project).
+
+---
 
 ## Standards
 
