@@ -27,22 +27,39 @@ const createChannel = async (discordHandle) => {
       throw new Error('Channel name is either undefined or does not meet Discord’s name length requirements.');
     }
 
-    const channel = await guild.channels.create({
-      name: channelName,
-      type: ChannelType.GuildText, // Ensure the correct type is set
-      permissionOverwrites: [
-        {
-          id: guild.roles.everyone, // Deny everyone access
-          deny: ['ViewChannel'],
-        },
-      ],
-    });
+    // Check if the channel already exists
+    let channel = guild.channels.cache.find(c => c.name === channelName);
 
-    // Generate an invite link for the created channel
-    const invite = await channel.createInvite({
-      maxAge: 0, // Permanent invite
-      maxUses: 1, // Single-use invite
-    });
+    if (channel) {
+      console.log(`Channel with name ${channelName} already exists.`);
+    } else {
+      // Create a new channel if it doesn't exist
+      channel = await guild.channels.create({
+        name: channelName,
+        type: ChannelType.GuildText, // Ensure the correct type is set
+        permissionOverwrites: [
+          {
+            id: guild.roles.everyone, // Deny everyone access
+            deny: ['ViewChannel'],
+          },
+        ],
+      });
+      console.log(`Created new channel with name ${channelName}.`);
+    }
+
+    // Fetch the invites for the channel
+    let invites = await channel.fetchInvites().catch(() => new Map());
+    let invite = invites.find(inv => inv.maxUses === 1);
+
+    if (!invite) {
+      invite = await channel.createInvite({
+        maxAge: 0, // Permanent invite
+        maxUses: 1, // Single-use invite
+      });
+      console.log(`Created new invite link for channel ${channelName}.`);
+    } else {
+      console.log(`Using existing invite link for channel ${channelName}.`);
+    }
 
     return invite.url;
   } catch (error) {
